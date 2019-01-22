@@ -12,6 +12,7 @@ namespace _02_Challenge
 
         internal void Run()
         {
+            SeedList();
             bool running = true;
             while (running)
             {
@@ -19,7 +20,8 @@ namespace _02_Challenge
                 Console.WriteLine("\t1. Display a list of all outings");
                 Console.WriteLine("\t2. Add individual outings to a list");
                 Console.WriteLine("\t3. To see the total cost of all outings");
-                Console.WriteLine("\t4. To exit the program");
+                Console.WriteLine("\t4. To see the total cost by type");
+                Console.WriteLine("\t5. To exit the program");
 
                 int choice = int.Parse(Console.ReadLine());
 
@@ -32,14 +34,36 @@ namespace _02_Challenge
                         AddOutingsToList();
                         break;
                     case 3:
-                        // Show total
+                        TotalCostAllOutings();
                         break;
                     case 4:
+                        TotalCostByType();
+                        break;
+                    case 5:
                         running = false;
                         break;
                 }
                 break;
             }
+        }
+
+        private void SeedList()
+        {
+            Outings outing = new Outings(TypeOfOutings.AmusementPark, 45, new DateTime(2018, 2, 24), 45);
+            Outings outingOne = new Outings(TypeOfOutings.Bowling, 60, new DateTime(2018, 3, 24), 45);
+            Outings outingTwo = new Outings(TypeOfOutings.Golf, 50, new DateTime(2018, 2, 24), 50);
+            Outings outingThree = new Outings(TypeOfOutings.Golf, 5, new DateTime(2018, 2, 24), 55);
+            Outings outingFour = new Outings(TypeOfOutings.AmusementPark, 15, new DateTime(2018, 2, 24), 65);
+            Outings outingFive = new Outings(TypeOfOutings.Concert, 4, new DateTime(2018, 2, 24), 80);
+            Outings outingSix = new Outings(TypeOfOutings.AmusementPark, 40, new DateTime(2018, 2, 24), 100);
+
+            _outingsRepository.AddOutingToList(outing);
+            _outingsRepository.AddOutingToList(outingOne);
+            _outingsRepository.AddOutingToList(outingTwo);
+            _outingsRepository.AddOutingToList(outingThree);
+            _outingsRepository.AddOutingToList(outingFour);
+            _outingsRepository.AddOutingToList(outingFive);
+            _outingsRepository.AddOutingToList(outingSix);
         }
 
         public void AddOutingsToList()
@@ -79,7 +103,7 @@ namespace _02_Challenge
             Console.WriteLine("Please enter no of people to attend the event:\n");
             newOuting.NumberOfPeople = int.Parse(Console.ReadLine());
 
-            newOuting.TotalCost = (newOuting.NumberOfPeople * newOuting.CostPerPerson); // Calc
+            // Calc
             // add now to the list of the product 
             _outingsRepository.AddOutingToList(newOuting);
 
@@ -94,10 +118,59 @@ namespace _02_Challenge
                 Console.WriteLine($"Your Outing Type: {content.Type}\n Cost Per Person ${content.CostPerPerson} \n" +
                     $"Event Date: {content.EventDate} \n No of People: \t{content.NumberOfPeople} \n Total Cost: ${content.TotalCost}\n");
             }
+            Run();
+        }
+        public void TotalCostAllOutings()
+        {
+            List<Outings> outingList = _outingsRepository.GetOutingList();
+            double totalCostAll = 0;
+            foreach  (Outings content in outingList)
+            {
+                totalCostAll += content.TotalCost;
+            }
+            Console.WriteLine("Your total cost of all outings is: {0}",totalCostAll);
+        }
+
+        public void TotalCostByType()
+        {
+            List<Outings> outingList = _outingsRepository.GetOutingList();
+            int choice;
+            double totalCost=0;
+
+            Console.WriteLine("Please select which type you would like to get it's total:\n" +
+                "1. Golf" +
+                "2. Bowling\n" +
+                "3. Amusement Park\n" +
+                "4. Concert\n");
+
+            choice = int.Parse(Console.ReadLine());
+
+            TypeOfOutings outing = TypeOfOutings.AmusementPark;
+            switch (choice)
+            {
+                case 1:
+                    outing = TypeOfOutings.Golf;
+                    break;
+                case 2:
+                    outing = TypeOfOutings.Bowling;
+                    break;
+                case 3:
+                    outing = TypeOfOutings.AmusementPark;
+                    break;
+                case 4:
+                    outing = TypeOfOutings.Concert;
+                    break;
+            }
+
+            foreach (Outings  cost in outingList)
+            {
+                if(outing == cost.Type)
+                {
+                    totalCost += cost.TotalCost;
+                }
+            }
+            Console.WriteLine($"Total cost of the selected type is: {totalCost}");
+            Run();
         }
     }
 }
-
-// for testing purpose..
-//Console.WriteLine("----------Welcome to the program!---------------\n");
-//Console.ReadLine();
