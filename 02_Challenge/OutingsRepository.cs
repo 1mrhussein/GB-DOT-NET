@@ -19,5 +19,24 @@ namespace _02_Challenge
         {
             return listOfOutings;
         }
+
+        public double CostByType(TypeOfOutings OType)
+        {
+            double totalCost = 0;
+            switch (OType)
+            {
+                case TypeOfOutings.Golf:
+                    totalCost += totalCost;
+                break;
+                case TypeOfOutings.Bowling:
+                    totalCost += totalCost;
+                    break;
+                case TypeOfOutings.AmusementPark:
+                    break;
+                case TypeOfOutings.Concert:
+                    break;
+            }
+            return totalCost;
+        }
     }
 }
