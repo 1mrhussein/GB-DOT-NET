@@ -23,20 +23,13 @@ namespace _02_Challenge
         public double CostByType(TypeOfOutings OType)
         {
             double totalCost = 0;
-            switch (OType)
+            foreach (Outings item in listOfOutings )
             {
-                case TypeOfOutings.Golf:
-                    totalCost += totalCost;
-                break;
-                case TypeOfOutings.Bowling:
-                    totalCost += totalCost;
-                    break;
-                case TypeOfOutings.AmusementPark:
-                    break;
-                case TypeOfOutings.Concert:
-                    break;
-            }
-            return totalCost;
+                if (item.Type == OType)
+                {
+                    totalCost += item.TotalCost;
+                }
+            } return totalCost;
         }
     }
 }

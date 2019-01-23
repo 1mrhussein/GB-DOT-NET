@@ -16,13 +16,13 @@ namespace _02_Challenge
         public int NumberOfPeople { get; set; }
         public double TotalCost { get; set; }
 
-        public Outings(TypeOfOutings type, double cpp, DateTime ed, int noppl)
+        public Outings(TypeOfOutings type, double cpp, DateTime ed, int noppl, double ttc)
         {
             Type = type;
             CostPerPerson = cpp;
             EventDate = ed;
             NumberOfPeople = noppl;
-            TotalCost = cpp * noppl;
+            TotalCost = ttc;
         }
 
         public Outings()
