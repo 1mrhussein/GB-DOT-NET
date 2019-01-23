@@ -8,7 +8,7 @@ namespace _02_Challenge
 {
     public enum TypeOfOutings { Golf, Bowling, AmusementPark, Concert};
 
-    class Outings
+    public class Outings
     {
         public TypeOfOutings Type { get; set; }
         public double CostPerPerson { get; set; }
@@ -16,13 +16,13 @@ namespace _02_Challenge
         public int NumberOfPeople { get; set; }
         public double TotalCost { get; set; }
 
-        public Outings(TypeOfOutings type, double cpp, DateTime ed, int noppl, double ttc)
+        public Outings(TypeOfOutings type, double cpp, DateTime ed, int noppl)
         {
             Type = type;
             CostPerPerson = cpp;
             EventDate = ed;
             NumberOfPeople = noppl;
-            TotalCost = ttc;
+            TotalCost = cpp*noppl;
         }
 
         public Outings()

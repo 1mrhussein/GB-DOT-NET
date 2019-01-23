@@ -77,7 +77,7 @@ namespace _02_Challenge
             Console.WriteLine("Pleae enter the cost per person:\n");
             newOuting.CostPerPerson = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Please enter date of the event:\n");
+            Console.WriteLine("Date of event in the format of: mm dd yyyy\n");
             newOuting.EventDate = DateTime.Parse(Console.ReadLine());
 
             Console.WriteLine("Please enter no of people to attend the event:\n");
@@ -107,7 +107,9 @@ namespace _02_Challenge
             {
                 totalCostAll += content.TotalCost;
             }
-            Console.WriteLine("Your total cost of all outings is: {0}",totalCostAll);
+            Console.WriteLine("Your total cost of all outings is: {0} $",totalCostAll);
+            Console.ReadLine();
+            Run();
         }
 
         public void TotalCostByType()
