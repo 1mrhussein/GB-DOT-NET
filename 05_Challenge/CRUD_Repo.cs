@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _05_Challenge
 {
-    class CRUD_Repo
+    public class CRUD_Repo
     {
         List<CRUD> crudList = new List<CRUD>();
         // to add customers in the dict.

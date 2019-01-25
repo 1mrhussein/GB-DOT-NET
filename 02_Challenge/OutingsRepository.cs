@@ -14,7 +14,7 @@ namespace _02_Challenge
         {
             listOfOutings.Add(outings);
         }
-
+        
         public List<Outings> GetOutingList()
         {
             return listOfOutings;

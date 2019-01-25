@@ -11,9 +11,7 @@ namespace _08_ChallengeTest
         public void Testing_IfPremuim_Varies_UpOnDriver_WayOfDriving()
         {
             //Arrange
-            //SmartInsuranceRepo repository = new SmartInsuranceRepo();
             SmartInsurance smI = new SmartInsurance();
-
 
             SmartInsurance smI0 = new SmartInsurance(55.00m, false, false, false, false);
             SmartInsurance smI2 = new SmartInsurance(68.75m, true, true, true, true);
@@ -22,7 +20,6 @@ namespace _08_ChallengeTest
             decimal expected = 55.00m;
             // Assert
             Assert.AreEqual(expected, actual);
-
         }
     }
 }
