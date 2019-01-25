@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace _08_Challenge
 {
-    class SmartInsuranceRepo
+    public class SmartInsuranceRepo
     {
+        List<SmartInsurance> listOfDrivers = new List<SmartInsurance>();
+
+        public void AddDriverToList(SmartInsurance smartIns)
+        {
+            listOfDrivers.Add(smartIns);
+        }
+
+        public List<SmartInsurance> GetOutingList()
+        {
+            return listOfDrivers;
+        }
     }
 }

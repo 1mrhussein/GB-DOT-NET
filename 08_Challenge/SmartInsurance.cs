@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _08_Challenge
 {
-    class SmartInsurance
+    public class SmartInsurance
     {
         private decimal Premium { get; set; }
         public bool CloseFollow { get; set; }
