@@ -43,7 +43,6 @@ namespace _02_UnitTest
             repository.AddOutingToList(outings2);
             repository.AddOutingToList(outings3);
 
-
             // Act
             double actualAMP = repository.CostByType(TypeOfOutings.AmusementPark);
             double expectedAMP = 50d;
@@ -53,7 +52,6 @@ namespace _02_UnitTest
 
             double actualC = repository.CostByType(TypeOfOutings.Concert);
             double expectedC = 100d;
-
             // Assert 
             Assert.AreEqual(expectedAMP, actualAMP);
             Assert.AreEqual(expectedB, actualB);

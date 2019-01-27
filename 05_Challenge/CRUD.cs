@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _05_Challenge
 {
-    public enum CustomerType { Potential, Current, Past };
+    public enum CustomerType {Potential, Current, Past };
 
     public class CRUD
     {
@@ -24,11 +24,9 @@ namespace _05_Challenge
             CustomerLastName = aCustomerLastName;
             CustomerMessage = aCustomerMessage;
         }
-
         public CRUD()
         {
             //empty
         }
-
     }
 }
